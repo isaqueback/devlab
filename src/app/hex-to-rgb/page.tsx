@@ -1,7 +1,33 @@
+'use client'
+
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
+const hexToRgbSchema = z.object({
+  hex: z.string().regex(/^#?([0-9A-F]{3}){1,2}$/i, 'Cor inválida!'),
+})
+
+type HexToRgbType = z.infer<typeof hexToRgbSchema>
+
 export default function HexToRgb() {
+  const {
+    register,
+    watch,
+    formState: { errors },
+  } = useForm<HexToRgbType>({
+    resolver: zodResolver(hexToRgbSchema),
+    defaultValues: {
+      hex: '',
+    },
+    mode: 'onChange',
+  })
+
+  const hexValue = watch('hex')
+
   return (
     <main className="flex w-screen max-w-[calc(100vw-213.883px)] flex-col gap-5">
       <section className="flex min-h-screen w-screen max-w-[calc(100vw-213.883px)] flex-col items-center justify-center gap-10 pt-10">
@@ -10,7 +36,24 @@ export default function HexToRgb() {
           <p className="text-xl text-muted-foreground">Hexadecimal para RGB</p>
         </div>
         <div className="flex flex-col gap-2">
-          <Input type="text" placeholder="Hex" />
+          <div className="border-radius flex items-center justify-center rounded-lg border px-2 ring-2 ring-background ring-offset-2 focus-within:ring-ring">
+            <span className="text-muted-foreground">#</span>
+            <Input
+              {...register('hex')}
+              type="text"
+              placeholder="Hex"
+              className="border-none pl-1 focus-visible:ring-0 focus-visible:ring-offset-0"
+            />
+          </div>
+          <small
+            className={`mb-5 ml-2 ${errors.hex ? 'text-destructive' : hexValue ? 'text-emerald-500' : 'text-muted-foreground'}`}
+          >
+            {errors.hex
+              ? errors.hex.message
+              : hexValue
+                ? 'Cor válida!'
+                : 'Coloque sua cor hexadecimal'}
+          </small>
           <div className="h-10 w-full rounded-md border"></div>
           <Button>Converter</Button>
         </div>
