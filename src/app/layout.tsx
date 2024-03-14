@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import { Work_Sans as WorkSans } from 'next/font/google'
 
 import { Aside } from './components/aside/aside'
+import { Footer } from './components/footer/footer'
 import { Header } from './components/header/header'
 
 const inter = WorkSans({ subsets: ['latin'] })
@@ -23,8 +24,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={clsx(inter.className, '')}>
         <Header />
-        {children}
         <Aside />
+        {children}
+        <Footer />
       </body>
     </html>
   )
