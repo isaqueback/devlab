@@ -1,9 +1,13 @@
 import './globals.css'
 
+import clsx from 'clsx'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Work_Sans as WorkSans } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+import { Aside } from './components/aside/aside'
+import { Header } from './components/header/header'
+
+const inter = WorkSans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'DevLab',
@@ -17,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={clsx(inter.className, '')}>
+        <Header />
+        {children}
+        <Aside />
+      </body>
     </html>
   )
 }
