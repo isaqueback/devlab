@@ -39,8 +39,8 @@ export default function HexToRgb() {
   const luminance = useLuminance(watch('hex'))
 
   return (
-    <main className="flex w-screen max-w-[calc(100vw-213.883px)] flex-col gap-5">
-      <section className="flex min-h-screen w-screen max-w-[calc(100vw-213.883px)] flex-col items-center justify-center gap-10 pt-10">
+    <main className="flex w-screen flex-col gap-5 px-3 sm:max-w-[calc(100vw-213.883px)]">
+      <section className="flex min-h-screen w-full flex-col items-center justify-center gap-10 pt-10">
         <div className="flex flex-col items-center gap-1">
           <h1 className="text-4xl font-bold">HEX para RGB</h1>
           <p className="text-xl text-muted-foreground">Hexadecimal para RGB</p>
@@ -76,11 +76,11 @@ export default function HexToRgb() {
           </div>
           <Button>Copiar</Button>
         </div>
-        <div className="flex h-[90px] w-[728px] items-center justify-center bg-muted-foreground text-background">
+        <div className="flex h-[90px] w-full max-w-[728px] items-center justify-center bg-muted-foreground text-background">
           Propaganda
         </div>
       </section>
-      <section className="mx-8 rounded-md border shadow-sm">
+      <section className="rounded-md border shadow-sm max-md:text-center lg:mx-8">
         <div className="flex max-w-5xl flex-col gap-2 p-6">
           <h2 className="text-2xl font-semibold">
             Explorando o Código de Cores Hexadecimal (HEX)
@@ -96,7 +96,7 @@ export default function HexToRgb() {
           </p>
         </div>
       </section>
-      <section className="mx-8 rounded-md border shadow-sm">
+      <section className="rounded-md border shadow-sm max-md:text-center lg:mx-8">
         <div className="flex max-w-5xl flex-col gap-2 p-6">
           <h2 className="text-2xl font-semibold">
             Compreendendo o Modelo de Cores RGB
@@ -112,7 +112,7 @@ export default function HexToRgb() {
           </p>
         </div>
       </section>
-      <section className="mx-8 rounded-md border shadow-sm">
+      <section className="rounded-md border shadow-sm max-md:text-center lg:mx-8">
         <div className="flex max-w-5xl flex-col gap-2 p-6">
           <h2 className="text-2xl font-semibold">
             Maximizando a Eficiência em Design com Conversões de Cores
@@ -128,7 +128,7 @@ export default function HexToRgb() {
           </p>
         </div>
       </section>
-      <section className="mx-8 rounded-md border shadow-sm">
+      <section className="rounded-md border shadow-sm max-md:text-center lg:mx-8">
         <div className="flex max-w-5xl flex-col gap-2 p-6">
           <h2 className="text-2xl font-semibold">
             A Importância da Paleta de Cores na Identidade Visual
