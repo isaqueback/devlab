@@ -7,6 +7,7 @@ import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
+import { useConvertColor } from '../hooks/useConvertColor'
 import { useLuminance } from '../hooks/useLuminance'
 
 const hexToRgbSchema = z.object({
@@ -33,18 +34,9 @@ export default function HexToRgb() {
       ? watch('hex').trim()
       : `#${watch('hex').trim()}`
     : ''
-
+  const rgbValue = useConvertColor({ color: hexValue, to: 'rgb' })
   const isHexValid = !errors.hex && !!hexValue
   const luminance = useLuminance(watch('hex'))
-  // function hexToRgb(hex: string) {
-  //   hex = hex.replace(/^#/, '')
-
-  //   const r = parseInt(hex.substring(0, 2), 16)
-  //   const g = parseInt(hex.substring(2, 4), 16)
-  //   const b = parseInt(hex.substring(4, 6), 16)
-
-  //   return { r, g, b }
-  // }
 
   return (
     <main className="flex w-screen max-w-[calc(100vw-213.883px)] flex-col gap-5">
@@ -79,10 +71,10 @@ export default function HexToRgb() {
             <span
               className={`text-xs font-light tracking-wide ${luminance > 0.5 ? 'text-foreground' : 'text-background'}`}
             >
-              {hexValue}
+              {rgbValue}
             </span>
           </div>
-          <Button>Converter</Button>
+          <Button>Copiar</Button>
         </div>
         <div className="flex h-[90px] w-[728px] items-center justify-center bg-muted-foreground text-background">
           Propaganda
