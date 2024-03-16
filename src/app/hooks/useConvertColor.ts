@@ -20,6 +20,9 @@ function hexToRgb(hex: string): { r: number; g: number; b: number } {
 export function useConvertColor({ color, to }: UseConvertColorProps) {
   if (to === 'rgb') {
     const rgb = hexToRgb(color)
+
+    if (!rgb.g || !rgb.r || !rgb.b) return ''
+
     return `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`
   }
 

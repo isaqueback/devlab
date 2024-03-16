@@ -4,6 +4,8 @@ import clsx from 'clsx'
 import type { Metadata } from 'next'
 import { Work_Sans as WorkSans } from 'next/font/google'
 
+import { Toaster } from '@/components/ui/toaster'
+
 import { Aside } from './components/aside/aside'
 import { Footer } from './components/footer/footer'
 import { Header } from './components/header/header'
@@ -27,6 +29,7 @@ export default function RootLayout({
         <Aside />
         {children}
         <Footer />
+        <Toaster />
       </body>
     </html>
   )

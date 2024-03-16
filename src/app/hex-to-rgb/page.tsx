@@ -1,13 +1,16 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { BadgeAlert, BadgeCheck } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { useToast } from '@/components/ui/use-toast'
 
 import { useConvertColor } from '../hooks/useConvertColor'
+import { useCopyToClipboard } from '../hooks/useCopyToClipboard'
 import { useLuminance } from '../hooks/useLuminance'
 
 const hexToRgbSchema = z.object({
@@ -38,6 +41,40 @@ export default function HexToRgb() {
   const isHexValid = !errors.hex && !!hexValue
   const luminance = useLuminance(watch('hex'))
 
+  const { elementRef, handleCopyToClipboard } = useCopyToClipboard()
+  const { toast } = useToast()
+
+  async function handleClickToCopy(
+    handleCopyToClipboard: () => Promise<boolean>,
+  ) {
+    const isCopied = true
+
+    console.log(isCopied)
+
+    if (!isCopied) {
+      toast({
+        duration: 1000 * 1, // 1s
+        variant: 'destructive',
+        description: (
+          <p className="flex items-center gap-2 font-medium">
+            <BadgeAlert className="h-6 w-6" strokeWidth={1.75} /> Falha ao
+            copiar a cor!
+          </p>
+        ),
+      })
+    } else {
+      toast({
+        duration: 1000 * 1, // 1s
+        success: true,
+        description: (
+          <p className="flex items-center gap-2 text-neutral-50">
+            <BadgeCheck strokeWidth={1.75} className="h-6 w-6" /> Cor copiada
+            com sucesso!
+          </p>
+        ),
+      })
+    }
+  }
   return (
     <main className="flex w-screen flex-col gap-5 px-3 sm:max-w-[calc(100vw-213.883px)]">
       <section className="flex min-h-screen w-full flex-col items-center justify-center gap-10 pt-10">
@@ -69,12 +106,16 @@ export default function HexToRgb() {
             style={{ backgroundColor: isHexValid ? hexValue : '' }}
           >
             <span
+              ref={elementRef}
               className={`text-xs font-light tracking-wide ${luminance > 0.5 ? 'text-foreground' : 'text-background'}`}
+              id="hex-value"
             >
               {rgbValue}
             </span>
           </div>
-          <Button>Copiar</Button>
+          <Button onClick={() => handleClickToCopy(handleCopyToClipboard)}>
+            Copiar
+          </Button>
         </div>
         <div className="flex h-[90px] w-full max-w-[728px] items-center justify-center bg-muted-foreground text-background">
           Propaganda
