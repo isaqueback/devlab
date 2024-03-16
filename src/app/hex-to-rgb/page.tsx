@@ -7,8 +7,10 @@ import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
+import { useLuminance } from '../hooks/useLuminance'
+
 const hexToRgbSchema = z.object({
-  hex: z.string().regex(/^#?([0-9A-F]{3}){1,2}$/i, 'Cor inválida!'),
+  hex: z.string().regex(/^\s*#?\s*([0-9A-F]{3}){1,2}\s*$/i, 'Cor inválida!'),
 })
 
 type HexToRgbType = z.infer<typeof hexToRgbSchema>
@@ -26,7 +28,23 @@ export default function HexToRgb() {
     mode: 'onChange',
   })
 
-  const hexValue = watch('hex')
+  const hexValue = watch('hex').trim()
+    ? watch('hex').trim().startsWith('#')
+      ? watch('hex').trim()
+      : `#${watch('hex').trim()}`
+    : ''
+
+  const isHexValid = !errors.hex && !!hexValue
+  const luminance = useLuminance(watch('hex'))
+  // function hexToRgb(hex: string) {
+  //   hex = hex.replace(/^#/, '')
+
+  //   const r = parseInt(hex.substring(0, 2), 16)
+  //   const g = parseInt(hex.substring(2, 4), 16)
+  //   const b = parseInt(hex.substring(4, 6), 16)
+
+  //   return { r, g, b }
+  // }
 
   return (
     <main className="flex w-screen max-w-[calc(100vw-213.883px)] flex-col gap-5">
@@ -50,11 +68,20 @@ export default function HexToRgb() {
           >
             {errors.hex
               ? errors.hex.message
-              : hexValue
+              : isHexValid
                 ? 'Cor válida!'
                 : 'Coloque sua cor hexadecimal'}
           </small>
-          <div className="h-10 w-full rounded-md border"></div>
+          <div
+            className="flex h-10 w-full items-center rounded-md border bg-background px-2 transition-all duration-500 ease-out"
+            style={{ backgroundColor: isHexValid ? hexValue : '' }}
+          >
+            <span
+              className={`text-xs font-light tracking-wide ${luminance > 0.5 ? 'text-foreground' : 'text-background'}`}
+            >
+              {hexValue}
+            </span>
+          </div>
           <Button>Converter</Button>
         </div>
         <div className="flex h-[90px] w-[728px] items-center justify-center bg-muted-foreground text-background">
