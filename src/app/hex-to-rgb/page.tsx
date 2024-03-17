@@ -37,8 +37,11 @@ export default function HexToRgb() {
       ? watch('hex').trim()
       : `#${watch('hex').trim()}`
     : ''
-  const rgbValue = useConvertColor({ color: hexValue, to: 'rgb' })
   const isHexValid = !errors.hex && !!hexValue
+  const rgbValue = useConvertColor({
+    color: isHexValid ? hexValue : '',
+    to: 'rgb',
+  })
   const luminance = useLuminance(watch('hex'))
 
   const { elementRef, handleCopyToClipboard } = useCopyToClipboard()
@@ -47,13 +50,12 @@ export default function HexToRgb() {
   async function handleClickToCopy(
     handleCopyToClipboard: () => Promise<boolean>,
   ) {
-    const isCopied = true
-
-    console.log(isCopied)
+    const isCopied = await handleCopyToClipboard()
 
     if (!isCopied) {
       toast({
-        duration: 1000 * 1, // 1s
+        success: false,
+        duration: 1000 * 2, // 2s
         variant: 'destructive',
         description: (
           <p className="flex items-center gap-2 font-medium">
@@ -64,7 +66,7 @@ export default function HexToRgb() {
       })
     } else {
       toast({
-        duration: 1000 * 1, // 1s
+        duration: 1000 * 2, // 2s
         success: true,
         description: (
           <p className="flex items-center gap-2 text-neutral-50">
@@ -102,7 +104,7 @@ export default function HexToRgb() {
                 : 'Coloque sua cor hexadecimal'}
           </small>
           <div
-            className="flex h-10 w-full items-center rounded-md border bg-background px-2 transition-all duration-500 ease-out"
+            className={`flex h-10 w-full max-w-[229.55px] items-center overflow-hidden rounded-md border bg-background transition-all duration-500 ease-out ${isHexValid ? 'px-2' : 'px-0'}`}
             style={{ backgroundColor: isHexValid ? hexValue : '' }}
           >
             <span
@@ -112,6 +114,9 @@ export default function HexToRgb() {
             >
               {rgbValue}
             </span>
+            {!isHexValid && (
+              <div className="flex h-full w-full flex-col items-center gap-1 bg-[repeating-linear-gradient(_145deg,_white_6%,_white_8%,_lightgray_9%,_lightgray_9%_)]"></div>
+            )}
           </div>
           <Button onClick={() => handleClickToCopy(handleCopyToClipboard)}>
             Copiar

@@ -21,7 +21,7 @@ export function useConvertColor({ color, to }: UseConvertColorProps) {
   if (to === 'rgb') {
     const rgb = hexToRgb(color)
 
-    if (!rgb.g || !rgb.r || !rgb.b) return ''
+    if (isNaN(rgb.g) || isNaN(rgb.r) || isNaN(rgb.b)) return ''
 
     return `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`
   }

@@ -6,8 +6,9 @@ export function useCopyToClipboard() {
   const handleCopyToClipboard = async () => {
     try {
       if (!elementRef.current) return false
+      if (!elementRef.current.textContent) return false
 
-      await navigator.clipboard.writeText(elementRef.current.textContent || '')
+      await navigator.clipboard.writeText(elementRef.current.textContent)
 
       return true
     } catch (err) {
