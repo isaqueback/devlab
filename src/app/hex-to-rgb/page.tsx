@@ -115,7 +115,7 @@ export default function HexToRgb() {
               {rgbValue}
             </span>
             {!isHexValid && (
-              <div className="flex h-full w-full flex-col items-center gap-1 bg-[repeating-linear-gradient(_145deg,_white_6%,_white_8%,_lightgray_9%,_lightgray_9%_)]"></div>
+              <div className="flex h-full w-full flex-col items-center gap-1 bg-[repeating-linear-gradient(_145deg,_#fff_6%,_#fff_8%,_#E5E5E5_9%,_#E5E5E5_9%_)]"></div>
             )}
           </div>
           <Button onClick={() => handleClickToCopy(handleCopyToClipboard)}>
