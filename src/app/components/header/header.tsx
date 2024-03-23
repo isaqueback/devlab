@@ -3,12 +3,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { Separator } from '@/components/ui/separator'
+
 import { ConverterDropdown } from './ConverterDropdown'
 import { LanguageDropdown } from './LanguageDropdown'
 
 export function Header() {
   return (
-    <header className="fixed z-20 flex h-14 w-full items-center gap-10 border-b border-neutral-200 bg-background px-5">
+    <header className="fixed z-20 flex h-14 w-full items-center gap-2 border-b border-neutral-200 bg-background px-5">
       <Link href="/" className="flex items-center">
         <Image
           src="/images/logo.png"
@@ -19,11 +21,13 @@ export function Header() {
         />
         <span className="text-lg font-extralight">DevLab</span>
       </Link>
-      <nav className="flex gap-2">
+      <nav className="ml-auto flex gap-2">
         <ConverterDropdown />
       </nav>
-      <div className="ml-auto flex gap-2">
+      <div className="flex h-full items-center gap-2 py-3">
+        <Separator orientation="vertical" />
         <LanguageDropdown />
+        <Separator orientation="vertical" />
         <div>DARK MODE</div>
       </div>
     </header>

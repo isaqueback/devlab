@@ -13,7 +13,10 @@ export function DropdownTriggerIcon({
     <Icon
       {...rest}
       strokeWidth={1.5}
-      className={twMerge('font h-5 w-5', rest.className)}
+      className={twMerge(
+        'font h-5 w-5 transition-all duration-300 ease-out group-hover:text-ring',
+        rest.className,
+      )}
     />
   )
 }

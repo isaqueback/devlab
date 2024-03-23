@@ -1,12 +1,6 @@
 import Link from 'next/link'
-import { useState } from 'react'
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+import { Dropdown } from './dropdown'
 
 const colorConverters = [
   { label: 'Hex para RGB', link: '/hex-to-rgb' },
@@ -24,27 +18,26 @@ const colorConverters = [
 ]
 
 export function ConverterDropdown() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-
   return (
-    <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
-      <DropdownMenuTrigger asChild>
-        <span className="cursor-pointer tracking-tighter text-neutral-700">
-          Conversores de Cores
-        </span>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="start">
+    <Dropdown.Root>
+      <Dropdown.TriggerWrapper>
+        <Dropdown.TriggerContent
+          content="Conversor de Cores"
+          className="tracking-tighter"
+        />
+      </Dropdown.TriggerWrapper>
+      <Dropdown.Content className="w-60">
         {colorConverters.map((converter, idx) => (
-          <DropdownMenuItem key={idx} onClick={() => setIsDropdownOpen(false)}>
+          <Dropdown.ContentItem key={idx}>
             <Link
               href={converter.link}
               className={`${idx > 3 ? 'font-light' : ''} w-full`}
             >
               {converter.label}
             </Link>
-          </DropdownMenuItem>
+          </Dropdown.ContentItem>
         ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </Dropdown.Content>
+    </Dropdown.Root>
   )
 }

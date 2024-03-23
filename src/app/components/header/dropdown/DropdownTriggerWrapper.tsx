@@ -18,7 +18,10 @@ export function DropdownTriggerWrapper({
       )}
     >
       {children}
-      <ChevronDown strokeWidth={1.5} className="h-4 w-4" />
+      <ChevronDown
+        strokeWidth={1.5}
+        className="h-4 w-4 transition-all duration-300 ease-out group-hover:text-ring"
+      />
     </div>
   )
 }

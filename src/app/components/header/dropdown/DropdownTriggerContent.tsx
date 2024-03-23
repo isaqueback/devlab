@@ -10,7 +10,13 @@ export function DropdownTriggerContent({
   ...rest
 }: DropdownTriggerContentProps) {
   return (
-    <span {...rest} className={twMerge('', rest.className)}>
+    <span
+      {...rest}
+      className={twMerge(
+        'transition-all duration-300 ease-out group-hover:text-ring',
+        rest.className,
+      )}
+    >
       {content}
     </span>
   )

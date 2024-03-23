@@ -15,9 +15,11 @@ export function LanguageDropdown() {
         <Dropdown.TriggerIcon icon={Languages} className="" />
       </Dropdown.TriggerWrapper>
       <Dropdown.Content>
-        <Dropdown.ContentItem>Português</Dropdown.ContentItem>
-        <Dropdown.ContentItem>English</Dropdown.ContentItem>
-        <Dropdown.ContentItem>Espanhol</Dropdown.ContentItem>
+        {languages.map((language, idx) => (
+          <Dropdown.ContentItem key={idx}>
+            {language.label}
+          </Dropdown.ContentItem>
+        ))}
       </Dropdown.Content>
     </Dropdown.Root>
   )
