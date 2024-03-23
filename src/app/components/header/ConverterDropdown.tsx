@@ -29,7 +29,7 @@ export function ConverterDropdown() {
   return (
     <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
       <DropdownMenuTrigger asChild>
-        <span className=" cursor-pointer tracking-tighter text-neutral-700">
+        <span className="cursor-pointer tracking-tighter text-neutral-700">
           Conversores de Cores
         </span>
       </DropdownMenuTrigger>
