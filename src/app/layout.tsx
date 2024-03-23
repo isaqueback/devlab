@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import type { Metadata } from 'next'
 import { Work_Sans as WorkSans } from 'next/font/google'
 
+import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/toaster'
 
 import { Aside } from './components/aside/aside'
@@ -25,11 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={clsx(inter.className, '')}>
-        <Header />
-        <Aside />
-        {children}
-        <Footer />
-        <Toaster />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          <Aside />
+          {children}
+          <Footer />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   )

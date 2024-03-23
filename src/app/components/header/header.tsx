@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Separator } from '@/components/ui/separator'
 
 import { ConverterDropdown } from './ConverterDropdown'
+import { DarkModeSwitch } from './darkMode/DarkModeSwitch'
 import { LanguageDropdown } from './LanguageDropdown'
 
 export function Header() {
@@ -28,7 +29,7 @@ export function Header() {
         <Separator orientation="vertical" />
         <LanguageDropdown />
         <Separator orientation="vertical" />
-        <div>DARK MODE</div>
+        <DarkModeSwitch />
       </div>
     </header>
   )
