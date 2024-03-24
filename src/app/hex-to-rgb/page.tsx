@@ -95,7 +95,7 @@ export default function HexToRgb() {
             />
           </div>
           <small
-            className={`mb-5 ml-2 ${errors.hex ? 'text-destructive' : hexValue ? 'text-emerald-500' : 'text-muted-foreground'}`}
+            className={`mb-5 ml-2 ${errors.hex ? 'text-red-500' : hexValue ? 'text-emerald-500' : 'text-muted-foreground'}`}
           >
             {errors.hex
               ? errors.hex.message
@@ -104,7 +104,7 @@ export default function HexToRgb() {
                 : 'Coloque sua cor hexadecimal'}
           </small>
           <div
-            className={`flex h-10 w-full max-w-[229.55px] items-center overflow-hidden rounded-md border bg-background transition-all duration-500 ease-out ${isHexValid ? 'px-2' : 'px-0'}`}
+            className={`flex h-10 w-full max-w-[229.55px] items-center overflow-hidden rounded-md border bg-background outline-foreground transition-all duration-500 ease-out dark:border dark:border-muted dark:outline dark:outline-2 ${isHexValid ? 'px-2' : 'px-0'}`}
             style={{ backgroundColor: isHexValid ? hexValue : '' }}
           >
             <span
@@ -115,7 +115,7 @@ export default function HexToRgb() {
               {rgbValue}
             </span>
             {!isHexValid && (
-              <div className="flex h-full w-full flex-col items-center gap-1 bg-[repeating-linear-gradient(_145deg,_#fff_6%,_#fff_8%,_#E5E5E5_9%,_#E5E5E5_9%_)]"></div>
+              <div className="flex h-full w-full flex-col items-center gap-1 bg-[repeating-linear-gradient(_145deg,_#fff_6%,_#fff_8%,_#E5E5E5_9%,_#E5E5E5_9%_)] dark:bg-[repeating-linear-gradient(_145deg,_#030712_6%,_#030712_8%,_#E5E5E5_9%,_#E5E5E5_9%_)]"></div>
             )}
           </div>
           <Button onClick={() => handleClickToCopy(handleCopyToClipboard)}>

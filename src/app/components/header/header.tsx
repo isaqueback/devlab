@@ -11,16 +11,16 @@ import { LanguageDropdown } from './LanguageDropdown'
 
 export function Header() {
   return (
-    <header className="fixed z-20 flex h-14 w-full items-center gap-2 border-b border-neutral-200 bg-background px-5">
+    <header className="fixed z-20 flex h-14 w-full items-center gap-2 border border-b bg-background px-5">
       <Link href="/" className="flex items-center">
         <Image
           src="/images/logo.png"
           width={1024}
           height={1024}
           alt="logo"
-          className="h-10 w-10"
+          className="h-8 w-8"
         />
-        <span className="text-lg font-extralight">DevLab</span>
+        <span className="font-extralight">DevLab</span>
       </Link>
       <nav className="ml-auto flex gap-2">
         <ConverterDropdown />
