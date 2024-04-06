@@ -1,8 +1,8 @@
 import { HTMLAttributes, RefObject } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-import { useConvertColor } from '@/app/hooks/useConvertColor'
-import { useLuminance } from '@/app/hooks/useLuminance'
+import { useConvertColor } from '@/hooks/use-convert-color'
+import { useLuminance } from '@/hooks/use-luminance'
 
 interface ConverterOutputProps extends HTMLAttributes<HTMLDivElement> {
   originalColorValue: string

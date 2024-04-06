@@ -1,10 +1,10 @@
-import { ConverterCopy } from './components/converter/ConverterCopy'
-import { ConverterErrorMessage } from './components/converter/ConverterErrorMessage'
-import { ConverterForm } from './components/converter/ConverterForm'
-import { ConverterInfo } from './components/converter/ConverterInfo'
-import { ConverterInput } from './components/converter/ConverterInput'
-import { ConverterOutput } from './components/converter/ConverterOutput'
-import { ConverterRoot } from './components/converter/ConverterRoot'
+import { ConverterCopy } from './(components)/(converter)/converter-copy'
+import { ConverterErrorMessage } from './(components)/(converter)/converter-error-message'
+import { ConverterForm } from './(components)/(converter)/converter-form'
+import { ConverterInfo } from './(components)/(converter)/converter-info'
+import { ConverterInput } from './(components)/(converter)/converter-input'
+import { ConverterOutput } from './(components)/(converter)/converter-output'
+import { ConverterRoot } from './(components)/(converter)/converter-root'
 
 export const Converter = {
   Root: ConverterRoot,

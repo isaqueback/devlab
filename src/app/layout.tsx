@@ -4,12 +4,12 @@ import clsx from 'clsx'
 import type { Metadata } from 'next'
 import { Work_Sans as WorkSans } from 'next/font/google'
 
+import { Header } from '@/components/header/header'
 import { ThemeProvider } from '@/components/themes/theme-provider'
 import { Toaster } from '@/components/ui/toaster'
 
 import { Aside } from '../components/aside/aside'
 import { Footer } from '../components/footer/footer'
-import { Header } from './components/header/header'
 
 const inter = WorkSans({ subsets: ['latin'] })
 
