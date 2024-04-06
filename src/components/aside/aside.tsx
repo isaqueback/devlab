@@ -4,11 +4,11 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const asideLink = [
-  { label: 'HEX para RGB', pathname: '/hex-to-rgb' },
-  { label: 'RGB para HEX', pathname: '/rgb-to-hex' },
-  { label: 'HEX para RGBA', pathname: '/hex-to-rgba' },
-  { label: 'RGBA para HEX', pathname: '/rgba-to-hex' },
-  { label: 'Opacidade para HEX', pathname: '/hex-opacity' },
+  { label: 'HEX para RGB', pathname: '/converter/hex-to-rgb' },
+  { label: 'RGB para HEX', pathname: '/converter/rgb-to-hex' },
+  { label: 'HEX para RGBA', pathname: '/converter/hex-to-rgba' },
+  { label: 'RGBA para HEX', pathname: '/converter/rgba-to-hex' },
+  { label: 'Opacidade para HEX', pathname: '/converter/hex-opacity' },
 ]
 
 export function Aside() {

@@ -5,9 +5,9 @@ import Link from 'next/link'
 
 import { Separator } from '@/components/ui/separator'
 
-import { ConverterDropdown } from './ConverterDropdown'
-import { DarkModeSwitch } from './darkMode/DarkModeSwitch'
-import { LanguageDropdown } from './LanguageDropdown'
+import { ConverterDropdown } from './converter-dropdown'
+import { DarkModeSwitch } from './darkMode/dark-mode-switch'
+import { LanguageDropdown } from './language-dropdown'
 
 export function Header() {
   return (

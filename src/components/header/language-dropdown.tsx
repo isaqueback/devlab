@@ -5,7 +5,7 @@ import { Dropdown } from './dropdown'
 const languages = [
   { label: 'Português', lang: 'pt-BR' },
   { label: 'English', lang: 'en-US' },
-  { label: 'Espanhol', lang: 'es-ES' },
+  { label: 'Español', lang: 'es-ES' },
 ]
 
 export function LanguageDropdown() {
