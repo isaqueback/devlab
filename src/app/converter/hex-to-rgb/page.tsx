@@ -1,11 +1,15 @@
+import { useTranslationServer } from '@/hooks/use-translation/use-translation-server'
+
 import { ConverterSection } from '../(components)/(converter)/converter-section'
 import { ColorExplanationSection } from '../(components)/color-explanation-section'
 
 export default function HexToRgb() {
+  const { t } = useTranslationServer()
+
   return (
     <main className="flex w-screen flex-col gap-5 px-3 sm:max-w-[calc(100vw-213.883px)]">
       <ConverterSection
-        title="HEX para RGB"
+        title={t.pages.converter['hex-to-rgb']['HEX to RGB']}
         description="Hexadecimal para RGB"
         prefix="#"
         originalColorType="hex"
