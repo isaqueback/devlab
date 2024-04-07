@@ -1,18 +1,24 @@
 import { HTMLAttributes } from 'react'
 import { twMerge } from 'tailwind-merge'
 
+import { useTranslationClient } from '@/hooks/use-translation/use-translation-client'
+
 interface ConverterErrorMessageProps extends HTMLAttributes<HTMLElement> {
+  enterYourColorWarnText: string
   originalColorValue: string
   isOriginalColorValueValid: boolean
   errorMessage?: string
 }
 
 export function ConverterErrorMessage({
+  enterYourColorWarnText,
   originalColorValue,
   isOriginalColorValueValid,
   errorMessage,
   ...rest
 }: ConverterErrorMessageProps) {
+  const { t } = useTranslationClient()
+
   return (
     <small
       className={twMerge(
@@ -22,8 +28,8 @@ export function ConverterErrorMessage({
     >
       {errorMessage ||
         (isOriginalColorValueValid
-          ? 'Cor válida!'
-          : 'Coloque sua cor hexadecimal')}
+          ? t?.pages.converter['Valid color!'] ?? ''
+          : enterYourColorWarnText)}
     </small>
   )
 }

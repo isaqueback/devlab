@@ -1,40 +1,44 @@
 import Link from 'next/link'
 
+import { useTranslationClient } from '@/hooks/use-translation/use-translation-client'
+
 import { Dropdown } from './dropdown'
 
-const colorConverters = [
-  { label: 'Hex para RGB', link: '/converter/hex-to-rgb' },
-  { label: 'RGB para HEX', link: '/converter/rgb-to-hex' },
-  {
-    label: 'Hex com Opacidade para RGBA',
-    link: '/converter/hex-with-opacity-to-rgba',
-  },
-  {
-    label: 'RGBA para HEX com opacidade',
-    link: '/converter/rgba-to-hex-with-opacity',
-  },
-  { label: 'HSL para HEX', link: '/converter/hsl-to-hex' },
-  { label: 'HSL para RGB', link: '/converter/hsl-to-rgb' },
-  { label: 'HEX para HSL', link: '/converter/hex-to-hsl' },
-  { label: 'RGB para HSL', link: '/converter/rgb-to-hsl' },
-  { label: 'RGBA para HSLA', link: '/converter/rgba-to-hsla' },
-  { label: 'HSLA para RGBA', link: '/converter/hsla-to-rgba' },
-  {
-    label: 'HEX com Opacidade para HSLA',
-    link: '/converter/hex-with-opacity-to-hsla',
-  },
-  {
-    label: 'HSLA para HEX com Opacidade',
-    link: '/converter/hsla-to-hex-with-opacity',
-  },
-]
-
 export function ConverterDropdown() {
+  const { t } = useTranslationClient()
+
+  const colorConverters = [
+    { label: t?.header['HEX to RGB'] ?? '', link: '/converter/hex-to-rgb' },
+    { label: t?.header['RGB to HEX'] ?? '', link: '/converter/rgb-to-hex' },
+    {
+      label: t?.header['HEX with Opacity to RGBA'] ?? '',
+      link: '/converter/hex-with-opacity-to-rgba',
+    },
+    {
+      label: t?.header['RGBA to HEX with Opacity'] ?? '',
+      link: '/converter/rgba-to-hex-with-opacity',
+    },
+    { label: t?.header['HSL to HEX'] ?? '', link: '/converter/hsl-to-hex' },
+    { label: t?.header['HSL to RGB'] ?? '', link: '/converter/hsl-to-rgb' },
+    { label: t?.header['HEX to HSL'] ?? '', link: '/converter/hex-to-hsl' },
+    { label: t?.header['RGB to HSL'] ?? '', link: '/converter/rgb-to-hsl' },
+    { label: t?.header['RGBA to HSLA'] ?? '', link: '/converter/rgba-to-hsla' },
+    { label: t?.header['HSLA to RGBA'] ?? '', link: '/converter/hsla-to-rgba' },
+    {
+      label: t?.header['HEX with Opacity to HSLA'] ?? '',
+      link: '/converter/hex-with-opacity-to-hsla',
+    },
+    {
+      label: t?.header['HSLA to HEX with Opacity'] ?? '',
+      link: '/converter/hsla-to-hex-with-opacity',
+    },
+  ]
+
   return (
     <Dropdown.Root>
       <Dropdown.TriggerWrapper>
         <Dropdown.TriggerContent
-          content="Conversor de Cores"
+          content={t?.header['Color Converter'] ?? ''}
           className="tracking-tighter"
         />
       </Dropdown.TriggerWrapper>

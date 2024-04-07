@@ -10,50 +10,62 @@ export default function HexToRgb() {
     <main className="flex w-screen flex-col gap-5 px-3 sm:max-w-[calc(100vw-213.883px)]">
       <ConverterSection
         title={t.pages.converter['hex-to-rgb']['HEX to RGB']}
-        description="Hexadecimal para RGB"
+        description={
+          t.pages.converter['hex-to-rgb']['Convert your hex color to RGB']
+        }
         prefix="#"
         originalColorType="hex"
         finalColorType="rgb"
         placeholder="Hex"
+        enterYourColorWarnText={
+          t.pages.converter['hex-to-rgb']['Enter your hex color']
+        }
       />
       <ColorExplanationSection
-        title="Explorando o Código de Cores Hexadecimal (HEX)"
-        paragraph="O código de cores hexadecimal, comumente conhecido como HEX, é uma
-            forma de representar cores utilizando uma combinação de seis dígitos
-            alfanuméricos. Cada par de dígitos representa a intensidade de
-            vermelho, verde e azul, respectivamente, variando de 00 a FF. Essa
-            notação é amplamente utilizada em design gráfico e desenvolvimento
-            web para especificar cores com precisão e consistência em diferentes
-            plataformas e dispositivos."
+        title={
+          t.pages.converter['hex-to-rgb'][
+            'Exploring the Hexadecimal Color Code (HEX)'
+          ]
+        }
+        paragraph={
+          t.pages.converter['hex-to-rgb'][
+            'The hexadecimal color code, commonly known as HEX, is a way of representing colors using a combination of six alphanumeric digits. Each pair of digits represents the intensity of red, green, and blue, respectively, ranging from 00 to FF. This notation is widely used in graphic design and web development to specify colors with precision and consistency across different platforms and devices.'
+          ]
+        }
       />
       <ColorExplanationSection
-        title="Compreendendo o Modelo de Cores RGB"
-        paragraph="O modelo de cores RGB, abreviação de Red, Green e Blue, é um sistema
-            de cores aditivas amplamente utilizado na representação de cores em
-            dispositivos eletrônicos, como monitores de computador, telas de
-            televisão e câmeras digitais. Nesse modelo, cada cor é representada
-            como uma combinação de intensidades de vermelho, verde e azul,
-            variando de 0 a 255. Ao ajustar essas intensidades, é possível criar
-            uma ampla gama de cores visíveis para o olho humano."
+        title={
+          t.pages.converter['hex-to-rgb']['Understanding the RGB Color Model']
+        }
+        paragraph={
+          t.pages.converter['hex-to-rgb'][
+            'The RGB color model, short for Red, Green, and Blue, is an additive color system widely used in representing colors on electronic devices such as computer monitors, television screens, and digital cameras. In this model, each color is represented as a combination of intensities of red, green, and blue, ranging from 0 to 255. By adjusting these intensities, it is possible to create a wide range of colors visible to the human eye.'
+          ]
+        }
       />
       <ColorExplanationSection
-        title="Maximizando a Eficiência em Design com Conversões de Cores"
-        paragraph="A conversão de cores HEX para RGB desempenha um papel fundamental em
-            otimizar os processos de design, assegurando que as cores sejam
-            consistentes em várias plataformas e dispositivos. Entender essas
-            conversões não apenas aprimora a precisão no design gráfico e
-            digital, mas também fortalece a comunicação visual, garantindo que a
-            intenção original do designer seja mantida independentemente do meio
-            utilizado."
+        title={
+          t.pages.converter['hex-to-rgb'][
+            'Maximizing Design Efficiency with Color Conversions'
+          ]
+        }
+        paragraph={
+          t.pages.converter['hex-to-rgb'][
+            'Converting HEX colors to RGB plays a fundamental role in optimizing design processes, ensuring that colors remain consistent across various platforms and devices. Understanding these conversions not only enhances accuracy in graphic and digital design but also strengthens visual communication, ensuring that the original intent of the designer is maintained regardless of the medium used.'
+          ]
+        }
       />
       <ColorExplanationSection
-        title="A Importância da Paleta de Cores na Identidade Visual"
-        paragraph="Uma paleta de cores bem escolhida é fundamental para estabelecer a
-            identidade visual única de uma marca, influenciando profundamente
-            como o público percebe e se conecta com ela. Cores não são apenas
-            estética; elas evocam emoções e comunicam valores, desempenhando um
-            papel essencial no branding e no marketing, ao criar uma imagem de
-            marca coesa e impactante."
+        title={
+          t.pages.converter['hex-to-rgb'][
+            'The Importance of Color Palette in Visual Identity'
+          ]
+        }
+        paragraph={
+          t.pages.converter['hex-to-rgb'][
+            'A well-chosen color palette is crucial for establishing the unique visual identity of a brand, profoundly influencing how the audience perceives and connects with it. Colors are not merely aesthetic; they evoke emotions and communicate values, playing an essential role in branding and marketing by creating a cohesive and impactful brand image.'
+          ]
+        }
       />
     </main>
   )
