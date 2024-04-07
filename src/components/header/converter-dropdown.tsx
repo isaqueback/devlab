@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 import { useTranslationClient } from '@/hooks/use-translation/use-translation-client'
 
@@ -6,6 +7,8 @@ import { Dropdown } from './dropdown'
 
 export function ConverterDropdown() {
   const { t } = useTranslationClient()
+
+  const pathname = usePathname()
 
   const colorConverters = [
     { label: t?.header['HEX to RGB'] ?? '', link: '/converter/hex-to-rgb' },
@@ -44,10 +47,17 @@ export function ConverterDropdown() {
       </Dropdown.TriggerWrapper>
       <Dropdown.Content className="w-60">
         {colorConverters.map((converter, idx) => (
-          <Dropdown.ContentItem key={idx}>
+          <Dropdown.ContentItem
+            className={
+              converter.link === pathname
+                ? 'cursor-not-allowed bg-input hover:bg-input'
+                : ''
+            }
+            key={idx}
+          >
             <Link
               href={converter.link}
-              className={`${idx > 3 ? 'font-light' : ''} w-full`}
+              className={`${idx > 3 ? 'font-light' : ''} ${converter.link === pathname ? 'cursor-not-allowed' : ''} w-full`}
             >
               {converter.label}
             </Link>
