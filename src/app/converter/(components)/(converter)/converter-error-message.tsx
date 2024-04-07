@@ -22,7 +22,7 @@ export function ConverterErrorMessage({
   return (
     <small
       className={twMerge(
-        `mb-5 ml-2 ${errorMessage ? 'text-red-500' : originalColorValue ? 'text-emerald-500' : 'text-muted-foreground'}`,
+        `animate__animated animate__fadeIn mb-5 ml-2 ${errorMessage ? 'text-red-500' : originalColorValue ? 'text-emerald-500' : 'text-muted-foreground'}`,
         rest.className,
       )}
     >

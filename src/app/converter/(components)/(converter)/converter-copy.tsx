@@ -1,5 +1,6 @@
 import { BadgeAlert, BadgeCheck } from 'lucide-react'
 import { HTMLAttributes } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 import { Button } from '@/components/ui/button'
 import { toast } from '@/components/ui/use-toast'
@@ -12,6 +13,7 @@ interface ConverterCopyProps extends HTMLAttributes<HTMLButtonElement> {
 export function ConverterCopy({
   text,
   handleCopyToClipboard,
+  ...rest
 }: ConverterCopyProps) {
   async function handleClickToCopy(
     handleCopyToClipboard: () => Promise<boolean>,
@@ -45,7 +47,11 @@ export function ConverterCopy({
   }
 
   return (
-    <Button onClick={() => handleClickToCopy(handleCopyToClipboard)}>
+    <Button
+      {...rest}
+      className={twMerge('animate__animated animate__fadeIn', rest.className)}
+      onClick={() => handleClickToCopy(handleCopyToClipboard)}
+    >
       {text}
     </Button>
   )

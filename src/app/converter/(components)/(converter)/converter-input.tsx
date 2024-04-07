@@ -25,7 +25,7 @@ export function ConverterInput({
   return (
     <div
       className={twMerge(
-        'border-radius flex items-center justify-center rounded-lg border px-2 ring-2 ring-background ring-offset-2 focus-within:ring-ring',
+        'animate__animated animate__fadeIn border-radius flex items-center justify-center rounded-lg border px-2 ring-2 ring-background ring-offset-2 focus-within:ring-ring',
         rest.className,
       )}
     >

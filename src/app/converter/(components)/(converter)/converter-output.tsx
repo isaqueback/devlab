@@ -28,7 +28,7 @@ export function ConverterOutput({
   return (
     <div
       className={twMerge(
-        `flex h-10 w-full max-w-[229.55px] items-center overflow-hidden rounded-md border bg-background outline-foreground transition-all duration-500 ease-out dark:border dark:border-muted dark:outline dark:outline-2 ${isOriginalColorValueValid ? 'px-2' : 'px-0'}`,
+        `animate__animated animate__fadeIn flex h-10 w-full max-w-[229.55px] items-center overflow-hidden rounded-md border bg-background outline-foreground transition-all duration-500 ease-out dark:border dark:border-muted dark:outline dark:outline-2 ${isOriginalColorValueValid ? 'px-2' : 'px-0'}`,
         rest.className,
       )}
       style={{

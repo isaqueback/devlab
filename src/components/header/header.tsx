@@ -11,7 +11,7 @@ import { LanguageDropdown } from './language-dropdown'
 
 export function Header() {
   return (
-    <header className="fixed z-20 flex h-14 w-full items-center gap-2 border border-b bg-background px-5">
+    <header className="animate__animated animate__fadeInDown fixed z-20 flex h-14 w-full items-center gap-2 border border-b bg-background px-5">
       <Link href="/" className="flex items-center">
         <Image
           src="/images/logo.png"

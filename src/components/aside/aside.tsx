@@ -27,7 +27,7 @@ export function Aside() {
   ]
 
   return (
-    <aside className="fixed right-0 top-0 z-10 flex h-screen flex-col items-center justify-center gap-4 border-l bg-background px-10 max-sm:hidden">
+    <aside className="animate__animated animate__fadeInRightBig fixed right-0 top-0 z-10 flex h-screen flex-col items-center justify-center gap-4 border-l bg-background px-10 max-sm:hidden">
       <h2 className="text-lg font-medium tracking-tight">
         {t?.aside['Other Options']}
       </h2>

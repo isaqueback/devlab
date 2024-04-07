@@ -35,7 +35,7 @@ export function ConverterDropdown() {
   ]
 
   return (
-    <Dropdown.Root>
+    <Dropdown.Root className="animate__animated animate__fadeInDownBig">
       <Dropdown.TriggerWrapper>
         <Dropdown.TriggerContent
           content={t?.header['Color Converter'] ?? ''}

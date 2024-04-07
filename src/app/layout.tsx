@@ -1,4 +1,5 @@
 import './globals.css'
+import 'animate.css'
 
 import clsx from 'clsx'
 import { Metadata } from 'next'

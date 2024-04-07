@@ -8,8 +8,6 @@ import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
 import { useTranslationClient } from '@/hooks/use-translation/use-translation-client'
 
 import { Converter } from '.'
-import { ConverterCopy } from './converter-copy'
-import { ConverterOutput } from './converter-output'
 
 interface ConverterSectionProps {
   title: string
@@ -85,19 +83,19 @@ export function ConverterSection({
           isOriginalColorValueValid={isOriginalColorValueValid}
           enterYourColorWarnText={enterYourColorWarnText}
         />
-        <ConverterOutput
+        <Converter.Output
           originalColorValue={originalColorValue}
           isOriginalColorValueValid={isOriginalColorValueValid}
           finalColorType={finalColorType}
           elementRef={elementRef}
         />
-        <ConverterCopy
+        <Converter.Copy
           text={t?.pages.converter.Copy ?? 'Copy'}
           handleCopyToClipboard={handleCopyToClipboard}
         />
       </Converter.Form>
 
-      <div className="flex h-[90px] w-full max-w-[728px] items-center justify-center bg-muted-foreground text-background">
+      <div className="animate__animated animate__fadeInUp flex h-[90px] w-full max-w-[728px] items-center justify-center bg-muted-foreground text-background">
         Propaganda
       </div>
     </Converter.Root>
