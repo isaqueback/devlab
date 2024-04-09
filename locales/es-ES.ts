@@ -27,6 +27,18 @@ export const esES: LocaleType = {
     'Opacity for HEX': 'Opacidad para HEX',
   },
   pages: {
+    home: {
+      heroSection: {
+        'Welcome to DevLab: Your Laboratory of':
+          'Bienvenido a DevLab: Tu Laboratorio de Herramientas de',
+        Design: 'Diseño',
+        and: 'y',
+        CSS: 'CSS',
+        'At DevLab, we elevate your design and frontend development with a versatile suite of tools, designed to ease and inspire your creativity.':
+          'En DevLab, elevamos tu diseño y desarrollo frontend con un conjunto versátil de herramientas, diseñadas para facilitar e inspirar tu creatividad.',
+        'View tools': 'Ver herramientas',
+      },
+    },
     converter: {
       'hex-to-rgb': {
         'HEX to RGB': 'HEX a RGB',

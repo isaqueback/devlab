@@ -27,6 +27,18 @@ export const enUS: LocaleType = {
     'Opacity for HEX': 'Opacity for HEX',
   },
   pages: {
+    home: {
+      heroSection: {
+        'Welcome to DevLab: Your Laboratory of':
+          'Welcome to DevLab: Your Laboratory of',
+        Design: 'Design',
+        and: 'and',
+        CSS: 'CSS',
+        'At DevLab, we elevate your design and frontend development with a versatile suite of tools, designed to ease and inspire your creativity.':
+          'At DevLab, we elevate your design and frontend development with a versatile suite of tools, designed to ease and inspire your creativity.',
+        'View tools': 'View tools',
+      },
+    },
     converter: {
       'hex-to-rgb': {
         'HEX to RGB': 'HEX to RGB',

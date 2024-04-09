@@ -25,6 +25,16 @@ export interface LocaleType {
     'Opacity for HEX': string
   }
   pages: {
+    home: {
+      heroSection: {
+        'Welcome to DevLab: Your Laboratory of': string
+        Design: string
+        and: string
+        CSS: string
+        'At DevLab, we elevate your design and frontend development with a versatile suite of tools, designed to ease and inspire your creativity.': string
+        'View tools': string
+      }
+    }
     converter: {
       'hex-to-rgb': {
         'HEX to RGB': string

@@ -27,6 +27,18 @@ export const ptBR: LocaleType = {
     'Opacity for HEX': 'Opacidade para HEX',
   },
   pages: {
+    home: {
+      heroSection: {
+        'Welcome to DevLab: Your Laboratory of':
+          'Bem-vindo ao DevLab: Seu Laboratório de Ferramentas de',
+        Design: 'Design',
+        and: 'e',
+        CSS: 'CSS',
+        'At DevLab, we elevate your design and frontend development with a versatile suite of tools, designed to ease and inspire your creativity.':
+          'No DevLab, elevamos seu design e desenvolvimento frontend com uma suíte versátil de ferramentas, projetadas para facilitar e inspirar sua criatividade.',
+        'View tools': 'Ver ferramentas',
+      },
+    },
     converter: {
       'hex-to-rgb': {
         'HEX to RGB': 'HEX para RGB',

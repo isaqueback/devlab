@@ -8,6 +8,7 @@ import { useTranslationClient } from '@/hooks/use-translation/use-translation-cl
 export function Aside() {
   const { t } = useTranslationClient()
   const pathname = usePathname()
+  const isShowed = !(pathname === '/')
 
   const asideLink = [
     { label: t?.aside['HEX to RGB'], pathname: '/converter/hex-to-rgb' },
@@ -27,21 +28,25 @@ export function Aside() {
   ]
 
   return (
-    <aside className="animate__animated animate__fadeInRightBig fixed right-0 top-0 z-10 flex h-screen flex-col items-center justify-center gap-4 border-l bg-background px-10 max-sm:hidden">
-      <h2 className="text-lg font-medium tracking-tight">
-        {t?.aside['Other Options']}
-      </h2>
-      <nav className="flex flex-col items-center gap-2 text-sm tracking-tight text-muted-foreground">
-        {asideLink.map((link) => (
-          <Link
-            key={link.pathname}
-            className={`w-fit transition-all duration-300 ease-out ${link.pathname === pathname ? 'text-foreground' : 'hover:text-foreground'}`}
-            href={link.pathname}
-          >
-            {link.label}
-          </Link>
-        ))}
-      </nav>
-    </aside>
+    <>
+      {isShowed && (
+        <aside className="animate__animated animate__fadeInRightBig fixed right-0 top-0 z-10 flex h-screen flex-col items-center justify-center gap-4 border-l bg-background px-10 max-sm:hidden">
+          <h2 className="text-lg font-medium tracking-tight">
+            {t?.aside['Other Options']}
+          </h2>
+          <nav className="flex flex-col items-center gap-2 text-sm tracking-tight text-muted-foreground">
+            {asideLink.map((link) => (
+              <Link
+                key={link.pathname}
+                className={`w-fit transition-all duration-300 ease-out ${link.pathname === pathname ? 'text-foreground' : 'hover:text-foreground'}`}
+                href={link.pathname}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </aside>
+      )}
+    </>
   )
 }
