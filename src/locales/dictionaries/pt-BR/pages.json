@@ -9,6 +9,12 @@
       "At DevLab, we elevate your design and frontend development with a versatile suite of tools, designed to ease and inspire your creativity.":
         "No DevLab, elevamos seu design e desenvolvimento frontend com uma suíte versátil de ferramentas, projetadas para facilitar e inspirar sua criatividade.",
       "View tools": "Ver ferramentas"
+    },
+    "toolsSection": {
+      "Our Tools": "Nossas Ferramentas",
+      "New": "Novo",
+      "Colors Converter": "Conversor de Cores",
+      "sectionDescription": "Converta sua cor de um tipo para outro. Por exemplo: de hexadecimal para RGB."
     }
   },
   "converter": {

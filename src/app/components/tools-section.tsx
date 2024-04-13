@@ -1,13 +1,16 @@
+import { createTranslation } from '@/i18n/server'
+
 import { Tool } from './tool'
 
-export function ToolsSection() {
+export async function ToolsSection() {
+  const { t } = await createTranslation('pages')
+
   const cards = [
     {
       imgSrc: '/images/color-converter-img.webp',
-      href: '/converter/hex-to-grb',
-      title: 'Conversor de Cores',
-      description:
-        'Converta sua cor de um tipo para outro. Por exemplo: de hexadecimal para RGB.',
+      href: '/converter/hex-to-rgb',
+      title: t('home.toolsSection.Colors Converter'),
+      description: t('home.toolsSection.sectionDescription'),
       isNew: true,
     },
   ]
@@ -31,7 +34,9 @@ export function ToolsSection() {
           strokeWidth="0"
         ></path>{' '}
       </svg>
-      <h2 className="z-10 mt-14 text-4xl font-semibold">Nossas Ferramentas</h2>
+      <h2 className="z-10 mt-14 text-4xl font-semibold">
+        {t('home.toolsSection.Our Tools')}
+      </h2>
       <div className="container z-10 flex flex-wrap justify-center gap-10 max-xs:px-2">
         {cards.map((card, idx) => (
           <Tool

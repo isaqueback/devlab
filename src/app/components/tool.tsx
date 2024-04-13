@@ -14,6 +14,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
+import { useTranslation } from '@/i18n/client'
 
 interface ToolProps {
   imgSrc: string
@@ -40,6 +41,8 @@ export function Tool({
     setImagesLoaded((prev) => ({ ...prev, [idx]: true }))
   }
 
+  const { t } = useTranslation('pages')
+
   return (
     <Link key={idx} className="group" href={href}>
       <Card className="flex w-full max-w-[350px] flex-col gap-2 border-2 p-2 shadow-sm transition-all duration-300 ease-out hover:shadow-md hover:shadow-neutral-300 dark:border-ring dark:hover:shadow-lg dark:hover:shadow-ring">
@@ -52,7 +55,7 @@ export function Tool({
           {isNew && (
             <strong className="flex animate-pulse items-center justify-center gap-1 font-mono text-xs font-medium text-emerald-300">
               <Sparkles className="h-3 w-3" />
-              New
+              {t('home.toolsSection.New')}
             </strong>
           )}
         </CardFooter>
