@@ -32,6 +32,8 @@
     },
     "Invalid color!": "Invalid color!",
     "Valid color!": "Valid color!",
-    "Copy": "Copy"
+    "Copy": "Copy",
+    "Failed to copy the color!": "Failed to copy the color!",
+    "Color copied successfully!": "Color copied successfully!"
   }
 }

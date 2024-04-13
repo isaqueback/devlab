@@ -4,6 +4,7 @@ import { twMerge } from 'tailwind-merge'
 
 import { Button } from '@/components/ui/button'
 import { toast } from '@/components/ui/use-toast'
+import { useTranslation } from '@/i18n/client'
 
 interface ConverterCopyProps extends HTMLAttributes<HTMLButtonElement> {
   text: string
@@ -27,8 +28,8 @@ export function ConverterCopy({
         variant: 'destructive',
         description: (
           <p className="flex items-center gap-2 font-medium">
-            <BadgeAlert className="h-6 w-6" strokeWidth={1.75} /> Falha ao
-            copiar a cor!
+            <BadgeAlert className="h-6 w-6" strokeWidth={1.75} />
+            {t('converter.Failed to copy the color!')}
           </p>
         ),
       })
@@ -38,13 +39,15 @@ export function ConverterCopy({
         success: true,
         description: (
           <p className="flex items-center gap-2 text-neutral-50">
-            <BadgeCheck strokeWidth={1.75} className="h-6 w-6" /> Cor copiada
-            com sucesso!
+            <BadgeCheck strokeWidth={1.75} className="h-6 w-6" />{' '}
+            {t('converter.Color copied successfully!')}
           </p>
         ),
       })
     }
   }
+
+  const { t } = useTranslation('pages')
 
   return (
     <Button

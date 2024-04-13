@@ -32,6 +32,8 @@
     },
     "Invalid color!": "¡Color no válido!",
     "Valid color!": "¡Cor válido!",
-    "Copy": "Copiar"
+    "Copy": "Copiar",
+    "Failed to copy the color!": "¡Error al copiar el color!",
+    "Color copied successfully!": "¡Color copiado con éxito!"
   }
 }

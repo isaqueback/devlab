@@ -37,7 +37,7 @@ export function ConverterOutput({
     >
       <span
         ref={elementRef}
-        className={`text-xs font-light tracking-wide ${luminance > 0.5 ? 'text-foreground' : 'text-background'}`}
+        className={`text-xs font-light tracking-wide ${luminance > 0.5 ? 'text-foreground dark:text-background' : 'text-background dark:text-foreground'}`}
         id="hex-value"
       >
         {finalColorValue}
