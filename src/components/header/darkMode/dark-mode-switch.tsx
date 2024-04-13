@@ -5,7 +5,7 @@ import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import * as React from 'react'
 
-import { useTranslationClient } from '@/hooks/use-translation/use-translation-client'
+import { useTranslation } from '@/i18n/client'
 import { cn } from '@/lib/utils'
 
 const DarkModeSwitch = React.forwardRef<
@@ -14,7 +14,7 @@ const DarkModeSwitch = React.forwardRef<
 >(({ className, ...props }, ref) => {
   const { setTheme, theme } = useTheme()
   const [isClient, setIsClient] = React.useState(false)
-  const { t } = useTranslationClient()
+  const { t } = useTranslation('header')
 
   React.useEffect(() => {
     setIsClient(true)
@@ -27,11 +27,7 @@ const DarkModeSwitch = React.forwardRef<
   }
   return (
     <SwitchPrimitives.Root
-      title={
-        isDarkMode
-          ? t?.header['Dark mode'] ?? ''
-          : t?.header['Light mode'] ?? ''
-      }
+      title={isDarkMode ? t('Dark mode') : t('Light mode')}
       checked={isDarkMode}
       className={cn(
         'peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border border-neutral-400 transition-colors hover:border-purple-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-background data-[state=unchecked]:bg-input',

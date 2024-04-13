@@ -1,0 +1,17 @@
+{
+    "Color Converter": "Convertidor de Colores",
+    "HEX to RGB": "HEX a RGB",
+    "RGB to HEX": "RGB a HEX",
+    "HEX with Opacity to RGBA": "HEX con Opacidad a RGBA",
+    "RGBA to HEX with Opacity": "RGBA a HEX con Opacidad",
+    "HSL to HEX": "HSL a HEX",
+    "HSL to RGB": "HSL a RGB",
+    "HEX to HSL": "HEX a HSL",
+    "RGB to HSL": "RGB a HSL",
+    "RGBA to HSLA": "RGBA a HSLA",
+    "HSLA to RGBA": "HSLA a RGBA",
+    "HEX with Opacity to HSLA": "HEX con Opacidad a HSLA",
+    "HSLA to HEX with Opacity": "HSLA a HEX con Opacidad",
+    "Light mode": "Modo Claro",
+    "Dark mode": "Modo Oscuro"
+}

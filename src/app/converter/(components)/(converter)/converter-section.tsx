@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
-import { useTranslationClient } from '@/hooks/use-translation/use-translation-client'
+import { useTranslation } from '@/i18n/client'
 
 import { Converter } from '.'
 
@@ -28,7 +28,7 @@ export function ConverterSection({
   placeholder,
   enterYourColorWarnText,
 }: ConverterSectionProps) {
-  const { t } = useTranslationClient()
+  const { t } = useTranslation('pages')
 
   const originalColorSchema = z.lazy(() =>
     z.object({
@@ -36,7 +36,7 @@ export function ConverterSection({
         .string()
         .regex(
           /^\s*#?\s*([0-9A-F]{3}){1,2}\s*$/i,
-          t?.pages.converter['Invalid color!'] ?? '',
+          t('converter.Invalid color!'),
         ),
     }),
   )
@@ -90,7 +90,7 @@ export function ConverterSection({
           elementRef={elementRef}
         />
         <Converter.Copy
-          text={t?.pages.converter.Copy ?? 'Copy'}
+          text={t('converter.Copy')}
           handleCopyToClipboard={handleCopyToClipboard}
         />
       </Converter.Form>

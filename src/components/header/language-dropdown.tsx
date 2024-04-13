@@ -1,9 +1,9 @@
-import Cookies from 'js-cookie'
 import { Languages } from 'lucide-react'
 
-import { useTranslationClient } from '@/hooks/use-translation/use-translation-client'
+import { useLocale } from '@/hooks/use-locale'
+import { switchLocaleAction } from '@/locales/actions/switch-locale'
+import { Locale } from '@/locales/settings'
 
-import { Locale } from '../../../locales'
 import { Dropdown } from './dropdown'
 
 const languages: { label: string; lang: Locale }[] = [
@@ -13,14 +13,10 @@ const languages: { label: string; lang: Locale }[] = [
 ]
 
 export function LanguageDropdown() {
-  const { lang } = useTranslationClient()
+  const lang = useLocale()
 
   function handleClickLanguage(lang: Locale) {
-    const expiryDate = new Date()
-    expiryDate.setFullYear(expiryDate.getFullYear() + 2) // adds 2 years to the current date
-    Cookies.set('lang', lang, { expires: expiryDate })
-
-    window.location.reload()
+    switchLocaleAction(lang)
   }
   return (
     <Dropdown.Root>

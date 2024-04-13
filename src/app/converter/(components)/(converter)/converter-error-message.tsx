@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-import { useTranslationClient } from '@/hooks/use-translation/use-translation-client'
+import { useTranslation } from '@/i18n/client'
 
 interface ConverterErrorMessageProps extends HTMLAttributes<HTMLElement> {
   enterYourColorWarnText: string
@@ -17,7 +17,7 @@ export function ConverterErrorMessage({
   errorMessage,
   ...rest
 }: ConverterErrorMessageProps) {
-  const { t } = useTranslationClient()
+  const { t } = useTranslation('pages')
 
   return (
     <small
@@ -28,7 +28,7 @@ export function ConverterErrorMessage({
     >
       {errorMessage ||
         (isOriginalColorValueValid
-          ? t?.pages.converter['Valid color!'] ?? ''
+          ? t('converter.Valid color!')
           : enterYourColorWarnText)}
     </small>
   )
