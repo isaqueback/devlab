@@ -26,13 +26,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const lang = getLocale()
+  const langAndRegion = getLocale()
+  const lang = langAndRegion.split('-')[0]
 
   return (
     <html lang={lang} className="scroll-smooth">
       <body className={clsx(inter.className, '')}>
         <ThemeProvider attribute="class" enableSystem>
-          <LocaleProvider value={lang}>
+          <LocaleProvider value={langAndRegion}>
             <Header />
             <Aside />
             {children}
