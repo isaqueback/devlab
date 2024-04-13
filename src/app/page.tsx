@@ -10,7 +10,7 @@ export default async function Home() {
   const { t } = await createTranslation('pages')
 
   return (
-    <main className="flex min-h-screen w-screen flex-col items-center justify-center overflow-hidden">
+    <main className="flex min-h-screen w-screen flex-col items-center justify-center gap-8 overflow-hidden">
       <section className="relative flex h-screen w-full max-w-screen-md flex-col items-center justify-center gap-4">
         <CircleDesign />
         <h1 className="animate__animated animate__fadeIn text-center text-5xl font-black max-sm:text-4xl max-xs:text-3xl">
@@ -27,7 +27,6 @@ export default async function Home() {
             'home.heroSection.At DevLab, we elevate your design and frontend development with a versatile suite of tools, designed to ease and inspire your creativity.',
           )}
         </p>
-
         <Link
           href="#tools-section"
           className="animate__animated animate__fadeIn absolute bottom-0 flex flex-col items-center gap-1"

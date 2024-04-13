@@ -7,7 +7,7 @@ export default async function HexToRgb() {
   const { t } = await createTranslation('pages')
 
   return (
-    <main className="flex w-screen flex-col gap-5 px-3 sm:max-w-[calc(100vw-213.883px)]">
+    <main className="flex w-screen flex-col gap-5 px-3 pb-10 sm:max-w-[calc(100vw-213.883px)]">
       <ConverterSection
         title={t('converter.hex-to-rgb.HEX to RGB')}
         description={t('converter.hex-to-rgb.Convert your hex color to RGB')}
