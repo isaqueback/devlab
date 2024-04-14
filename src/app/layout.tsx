@@ -1,6 +1,7 @@
 import './globals.css'
 import 'animate.css'
 
+import { Analytics } from '@vercel/analytics/react'
 import clsx from 'clsx'
 import { Metadata } from 'next'
 import { Work_Sans as WorkSans } from 'next/font/google'
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className={clsx(inter.className, '')}>
         <ThemeProvider attribute="class" enableSystem>
           <LocaleProvider value={langAndRegion}>
+            <Analytics />
             <Header />
             <Aside />
             {children}
