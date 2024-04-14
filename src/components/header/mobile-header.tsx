@@ -22,7 +22,6 @@ export function MobileHeader() {
   const { t } = useTranslation('header')
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
-  console.log(pathname)
 
   const colorConverters = [
     { label: t('HEX to RGB'), link: '/converter/hex-to-rgb' },
