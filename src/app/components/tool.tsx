@@ -44,7 +44,11 @@ export function Tool({
   const { t } = useTranslation('pages')
 
   return (
-    <Link key={idx} className="group" href={href}>
+    <Link
+      key={idx}
+      className="animate__animated animate__fadeIn group"
+      href={href}
+    >
       <Card className="flex w-full max-w-[350px] flex-col gap-2 border-2 p-2 shadow-sm transition-all duration-300 ease-out hover:shadow-md hover:shadow-neutral-300 dark:border-ring dark:hover:shadow-lg dark:hover:shadow-ring">
         <CardFooter className="mx-2 flex cursor-pointer justify-between p-0">
           <div className="flex items-center justify-center gap-1">
