@@ -13,7 +13,7 @@ export function DropdownTriggerWrapper({
   return (
     <div
       className={twMerge(
-        'flex cursor-pointer items-center gap-1 p-2',
+        'relative flex cursor-pointer items-center gap-1 p-2',
         rest.className,
       )}
     >

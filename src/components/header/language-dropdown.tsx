@@ -18,10 +18,8 @@ const languages: { label: string; lang: Locale }[] = [
   { label: 'Español', lang: 'es-ES' },
 ]
 
-export function LanguageDropdown({ side = 'bottom' }: LanguageDropdownProps) {
+export function LanguageDropdown({ side }: LanguageDropdownProps) {
   const lang = useLocale()
-  const sideStyle =
-    side === 'bottom' ? '-bottom-0 left-2' : 'bottom-36 -left-0.5'
 
   function handleClickLanguage(lang: Locale) {
     switchLocaleAction(lang)
@@ -31,7 +29,7 @@ export function LanguageDropdown({ side = 'bottom' }: LanguageDropdownProps) {
       <Dropdown.TriggerWrapper>
         <Dropdown.TriggerIcon icon={Languages} className="" />
       </Dropdown.TriggerWrapper>
-      <Dropdown.Content sideStyle={sideStyle}>
+      <Dropdown.Content side={side}>
         {languages.map((language, idx) => (
           <Dropdown.ContentItem
             className={

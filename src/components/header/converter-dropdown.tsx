@@ -47,7 +47,7 @@ export function ConverterDropdown() {
           className="tracking-tighter"
         />
       </Dropdown.TriggerWrapper>
-      <Dropdown.Content className="w-60">
+      <Dropdown.Content className="absolute w-60">
         {colorConverters.map((converter, idx) => (
           <Dropdown.ContentItem
             className={
