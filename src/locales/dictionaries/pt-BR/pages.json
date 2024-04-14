@@ -15,7 +15,9 @@
       "New": "Novo",
       "Colors Converter": "Conversor de Cores",
       "sectionDescription": "Converta sua cor de um tipo para outro. Por exemplo: de hexadecimal para RGB."
-    }
+    },
+    "We use cookies": "Nós utilizamos cookies",
+    "OK": "OK"
   },
   "converter": {
     "hex-to-rgb": {

@@ -14,7 +14,9 @@
       "New": "New",
       "Colors Converter": "Colors Converter",
       "sectionDescription": "Convert your color from one type to another. For example: from hexadecimal to RGB."
-    }
+    },
+    "We use cookies": "We use cookies",
+    "OK": "OK"
   },
   "converter": {
     "hex-to-rgb": {

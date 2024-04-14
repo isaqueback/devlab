@@ -14,6 +14,7 @@ import { getLocale } from '@/i18n/server'
 
 import { Aside } from '../components/aside/aside'
 import { Footer } from '../components/footer/footer'
+import { ConsentCookieContainer } from './components/consent-cookie-container'
 import { GoogleAdsense } from './components/google-adsense'
 
 const inter = WorkSans({ subsets: ['latin'] })
@@ -46,6 +47,7 @@ export default function RootLayout({
             {children}
             <Footer />
             <Toaster />
+            <ConsentCookieContainer />
           </LocaleProvider>
         </ThemeProvider>
       </body>
