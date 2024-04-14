@@ -95,9 +95,7 @@ export function ConverterSection({
         />
       </Converter.Form>
 
-      <div className="animate__animated animate__fadeInUp flex h-[90px] w-full max-w-[728px] items-center justify-center bg-muted-foreground text-background">
-        Propaganda
-      </div>
+      <div className="animate__animated animate__fadeInUp justify-cente flex h-[90px] w-full max-w-[728px] items-center text-background"></div>
     </Converter.Root>
   )
 }
