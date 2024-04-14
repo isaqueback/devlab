@@ -7,6 +7,7 @@ import { z } from 'zod'
 import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
 import { useTranslation } from '@/i18n/client'
 
+import { Ad } from '../google-adsense-ad'
 import { Converter } from '.'
 
 interface ConverterSectionProps {
@@ -95,7 +96,7 @@ export function ConverterSection({
         />
       </Converter.Form>
 
-      <div className="animate__animated animate__fadeInUp justify-cente flex h-[90px] w-full max-w-[728px] items-center text-background"></div>
+      <Ad />
     </Converter.Root>
   )
 }
