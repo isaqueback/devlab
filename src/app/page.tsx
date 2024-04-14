@@ -14,7 +14,8 @@ export default async function Home() {
       <section className="relative flex h-screen w-full max-w-screen-md flex-col items-center justify-center gap-4">
         <CircleDesign />
         <h1 className="animate__animated animate__fadeIn text-center text-5xl font-black max-sm:text-4xl max-xs:text-3xl">
-          {t('home.heroSection.Welcome to DevLab')}: {t('Your Laboratory of')}
+          {t('home.heroSection.Welcome to DevLab')}:{' '}
+          {t('home.heroSection.Your Laboratory of')}
           <strong className="text-ring">
             {' '}
             {t('home.heroSection.Design')}{' '}
