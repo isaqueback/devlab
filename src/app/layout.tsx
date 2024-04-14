@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang={lang} className="scroll-smooth">
       <head>
-        <GoogleAdsense pId="7538231295956832" />
+        <GoogleAdsense pId={process.env.pId as string} />
       </head>
       <body className={clsx(inter.className, '')}>
         <ThemeProvider attribute="class" enableSystem>
