@@ -13,7 +13,7 @@ export function Aside() {
 
   const asideLink = [
     { label: t('HEX to RGB'), pathname: '/converter/hex-to-rgb' },
-    // { label: t('RGB to HEX'), pathname: '/converter/rgb-to-hex' },
+    { label: t('RGB to HEX'), pathname: '/converter/rgb-to-hex' },
     // {
     //   label: t('HEX to RGBA'),
     //   pathname: '/converter/hex-to-rgba',

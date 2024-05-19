@@ -14,7 +14,7 @@ export function ConverterDropdown() {
 
   const colorConverters = [
     { label: t('HEX to RGB'), link: '/converter/hex-to-rgb' },
-    // { label: t('RGB to HEX'), link: '/converter/rgb-to-hex' },
+    { label: t('RGB to HEX'), link: '/converter/rgb-to-hex' },
     // {
     //   label: t('HEX with Opacity to RGBA'),
     //   link: '/converter/hex-with-opacity-to-rgba',

@@ -3,9 +3,11 @@ import { twMerge } from 'tailwind-merge'
 
 import { useTranslation } from '@/i18n/client'
 
+import { OriginalColorValue } from './converter-section'
+
 interface ConverterErrorMessageProps extends HTMLAttributes<HTMLElement> {
   enterYourColorWarnText: string
-  originalColorValue: string
+  originalColorValue: OriginalColorValue
   isOriginalColorValueValid: boolean
   errorMessage?: string
 }

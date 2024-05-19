@@ -4,15 +4,32 @@ import { twMerge } from 'tailwind-merge'
 
 import { Input } from '@/components/ui/input'
 
-interface OriginalColorType {
-  [x: string]: string
-}
+export type ColorType = 'hex' | 'rgb'
 
 interface ConverterInputProps extends HTMLAttributes<HTMLDivElement> {
+  placeholder: string
   prefix?: string
-  placeholder?: string
-  originalColorType: 'hex' | 'rgb'
-  register: UseFormRegister<OriginalColorType>
+  originalColorType: ColorType
+  register: UseFormRegister<{
+    hex: string
+    rgb: (
+      | ''
+      | {
+          r: number
+          g: number
+          b: number
+        }
+    ) &
+      (
+        | ''
+        | {
+            r: number
+            g: number
+            b: number
+          }
+        | undefined
+      )
+  }>
 }
 
 export function ConverterInput({

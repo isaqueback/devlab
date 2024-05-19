@@ -4,26 +4,37 @@ import { twMerge } from 'tailwind-merge'
 import { useConvertColor } from '@/hooks/use-convert-color'
 import { useLuminance } from '@/hooks/use-luminance'
 
+import { ColorType } from './converter-input'
+import { OriginalColorValue } from './converter-section'
+
 interface ConverterOutputProps extends HTMLAttributes<HTMLDivElement> {
-  originalColorValue: string
+  originalColorValue: OriginalColorValue
   isOriginalColorValueValid: boolean
-  finalColorType: 'rgb'
+  originalColorType: ColorType
+  finalColorType: ColorType
   elementRef: RefObject<HTMLSpanElement>
 }
 
 export function ConverterOutput({
   originalColorValue,
   isOriginalColorValueValid,
+  originalColorType,
   finalColorType,
   elementRef,
   ...rest
 }: ConverterOutputProps) {
   const finalColorValue = useConvertColor({
-    color: isOriginalColorValueValid ? originalColorValue : '',
+    color: originalColorValue,
+    from: originalColorType,
     to: finalColorType,
   })
 
-  const luminance = useLuminance(originalColorValue)
+  const luminance = useLuminance({
+    originalColor: originalColorValue,
+    finalColor: finalColorValue,
+    from: originalColorType,
+    to: finalColorType,
+  })
 
   return (
     <div
@@ -32,7 +43,7 @@ export function ConverterOutput({
         rest.className,
       )}
       style={{
-        backgroundColor: isOriginalColorValueValid ? originalColorValue : '',
+        backgroundColor: isOriginalColorValueValid ? finalColorValue : '',
       }}
     >
       <span

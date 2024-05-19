@@ -1,30 +1,29 @@
+import { ColorType } from '@/app/converter/(components)/(converter)/converter-input'
+import {
+  OriginalColorValue,
+  RGB,
+} from '@/app/converter/(components)/(converter)/converter-section'
+import { convertColor } from '@/utils/color-conversion'
+
 interface UseConvertColorProps {
-  color: string
-  to: 'rgb' | 'hex'
+  color: OriginalColorValue
+  from: ColorType
+  to: ColorType
 }
 
-function hexToRgb(hex: string): { r: number; g: number; b: number } {
-  hex = hex.replace(/^#/, '').trim()
+export function useConvertColor({ color, from, to }: UseConvertColorProps) {
+  if (!color) return undefined
 
-  if (hex.length === 3) {
-    hex = hex.replace(/./g, '$&$&')
-  }
+  const convertedColor = convertColor(color, from, to)
 
-  const r = parseInt(hex.substring(0, 2), 16)
-  const g = parseInt(hex.substring(2, 4), 16)
-  const b = parseInt(hex.substring(4, 6), 16)
+  if (convertedColor === null) return ''
 
-  return { r, g, b }
-}
-
-export function useConvertColor({ color, to }: UseConvertColorProps) {
-  if (to === 'rgb') {
-    const rgb = hexToRgb(color)
-
-    if (isNaN(rgb.g) || isNaN(rgb.r) || isNaN(rgb.b)) return ''
-
+  if (from === 'hex' && to === 'rgb') {
+    const rgb = convertedColor as RGB
     return `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`
+  } else if (from === 'rgb' && to === 'hex') {
+    return convertedColor as string
   }
 
-  return ''
+  return undefined
 }
