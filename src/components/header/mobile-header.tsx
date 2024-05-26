@@ -26,10 +26,10 @@ export function MobileHeader() {
   const colorConverters = [
     { label: t('HEX to RGB'), link: '/converter/hex-to-rgb' },
     { label: t('RGB to HEX'), link: '/converter/rgb-to-hex' },
-    // {
-    //   label: t('HEX with Opacity to RGBA'),
-    //   link: '/converter/hex-with-opacity-to-rgba',
-    // },
+    {
+      label: t('HEX to RGBA'),
+      link: '/converter/hex-with-opacity-to-rgba',
+    },
     // {
     //   label: t('RGBA to HEX with Opacity'),
     //   link: '/converter/rgba-to-hex-with-opacity',

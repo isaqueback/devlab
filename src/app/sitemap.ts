@@ -17,5 +17,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: '2024-05-19T17:55:49.330Z',
       priority: 0.8,
     },
+    {
+      url: 'https://www.dev-lab.tech/converter/hex-with-opacity-to-rgba',
+      lastModified: '2024-05-26T12:35:52.074Z',
+      priority: 0.8,
+    },
   ]
 }

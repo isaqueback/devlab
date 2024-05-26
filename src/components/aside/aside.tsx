@@ -14,10 +14,10 @@ export function Aside() {
   const asideLink = [
     { label: t('HEX to RGB'), pathname: '/converter/hex-to-rgb' },
     { label: t('RGB to HEX'), pathname: '/converter/rgb-to-hex' },
-    // {
-    //   label: t('HEX to RGBA'),
-    //   pathname: '/converter/hex-to-rgba',
-    // },
+    {
+      label: t('HEX to RGBA'),
+      pathname: '/converter/hex-with-opacity-to-rgba',
+    },
     // {
     //   label: t('RGBA to HEX'),
     //   pathname: '/converter/rgba-to-hex',

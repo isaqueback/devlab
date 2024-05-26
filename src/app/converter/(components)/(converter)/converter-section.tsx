@@ -27,6 +27,13 @@ export type RGB = {
   b: number
 }
 
+export type RGBA = {
+  r: number
+  g: number
+  b: number
+  a: number
+}
+
 export type OriginalColorValue = string | RGB | undefined
 
 export function ConverterSection({
@@ -165,14 +172,34 @@ export function ConverterSection({
     })
     .or(z.literal(''))
 
+  const hexWithOpacitySchema = z
+    .string()
+    .regex(/^\s*#?\s*([0-9A-F]{8})\s*$/i, t('converter.Invalid color!'))
+    .transform((data) => {
+      let hex = data.trim()
+      hex = hex.startsWith('#') ? hex : '#' + hex
+      return hex
+    })
+    .or(z.literal(''))
+
+  const rgbaSchema = z.object({
+    r: z.number(),
+    g: z.number(),
+    b: z.number(),
+    a: z.number(),
+  })
   const totalOriginalColorSchema = z.object({
     hex: hexSchema,
     rgb: rgbSchema,
+    hexWithOpacity: hexWithOpacitySchema,
+    rgba: rgbaSchema,
   })
 
   const originalColorSchemas = {
     hex: hexSchema,
     rgb: rgbSchema,
+    hexWithOpacity: hexWithOpacitySchema,
+    rgba: rgbaSchema,
     totalOriginalColorSchema,
   }
 
@@ -187,6 +214,7 @@ export function ConverterSection({
     defaultValues: {
       hex: '',
       rgb: '',
+      hexWithOpacity: '',
     },
     mode: 'onChange',
   })

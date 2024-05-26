@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge'
 
 import { Input } from '@/components/ui/input'
 
-export type ColorType = 'hex' | 'rgb'
+export type ColorType = 'hex' | 'rgb' | 'hexWithOpacity' | 'rgba'
 
 interface ConverterInputProps extends HTMLAttributes<HTMLDivElement> {
   placeholder: string
@@ -29,6 +29,13 @@ interface ConverterInputProps extends HTMLAttributes<HTMLDivElement> {
           }
         | undefined
       )
+    hexWithOpacity: string
+    rgba: {
+      r: number
+      g: number
+      b: number
+      a: number
+    }
   }>
 }
 

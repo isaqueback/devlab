@@ -1,5 +1,8 @@
 import { ColorType } from '@/app/converter/(components)/(converter)/converter-input'
-import { RGB } from '@/app/converter/(components)/(converter)/converter-section'
+import {
+  RGB,
+  RGBA,
+} from '@/app/converter/(components)/(converter)/converter-section'
 
 function hexToRgb(hex: string): RGB {
   hex = hex.replace(/^#/, '').trim()
@@ -42,6 +45,33 @@ function rgbStringToRgb(rgbString: string): RGB | null {
   return { r, g, b }
 }
 
+function hexWithOpacityToRgba(hexWithOpacity: string): RGBA | null {
+  hexWithOpacity = hexWithOpacity.replace(/^#/, '').trim()
+
+  if (hexWithOpacity.length !== 8) return null
+
+  const r = parseInt(hexWithOpacity.substring(0, 2), 16)
+  const g = parseInt(hexWithOpacity.substring(2, 4), 16)
+  const b = parseInt(hexWithOpacity.substring(4, 6), 16)
+  const a = Number(
+    (parseInt(hexWithOpacity.substring(6, 8), 16) / 255).toFixed(2),
+  )
+
+  return { r, g, b, a }
+}
+
+function hexWithOpacityToRgb(hexWithOpacity: string): RGB | null {
+  hexWithOpacity = hexWithOpacity.replace(/^#/, '').trim()
+
+  if (hexWithOpacity.length !== 8) return null
+
+  const r = parseInt(hexWithOpacity.substring(0, 2), 16)
+  const g = parseInt(hexWithOpacity.substring(2, 4), 16)
+  const b = parseInt(hexWithOpacity.substring(4, 6), 16)
+
+  return { r, g, b }
+}
+
 function convertColor(
   color: string | RGB,
   from: ColorType,
@@ -56,6 +86,10 @@ function convertColor(
     /^rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)$/.test(color)
   ) {
     return rgbStringToRgb(color)
+  } else if (from === 'hexWithOpacity' && to === 'rgba') {
+    return hexWithOpacityToRgba(color as string)
+  } else if (from === 'hexWithOpacity' && to === 'rgb') {
+    return hexWithOpacityToRgb(color as string)
   }
 
   return null
